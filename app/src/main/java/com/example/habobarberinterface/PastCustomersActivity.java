@@ -6,18 +6,35 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.habobarberinterface.Common.Common;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class PastCustomersActivity extends AppCompatActivity {
 
     private static final String TAG = "";
     private RecyclerView customerList;
+    private FirebaseFirestore firebaseFirestore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_customers);
 
+        firebaseFirestore = FirebaseFirestore.getInstance();
         customerList = findViewById(R.id.customerList);
+
+        //Query
+        ///AllSalon/Sydney/Branch/1qm8MoF5skj0ZFA5EaY8/Barber/E3uiSmrM10y0dehKkHKD
+        //Query query = firebaseFirestore.collection("AllSalon").document(Common.selected_salon.getAddress());
+        Log.d(TAG, "Salon get address" + Common.selected_salon.getAddress());
+        Log.d(TAG, "Salon get address" + Common.selected_salon.getName());
+        Log.d(TAG, "Salon get address" + Common.selected_salon.getSalonID());
+        Log.d(TAG, "Salon get address" + Common.currentBarber.getName());
+        Log.d(TAG, "Salon get address" + Common.currentBarber.getBarberId());
+        //RecyclerOptions
+
+        //ViewHolder
 
         Log.d(TAG, "The barber's name is " + Common.currentBarber.getName());
     }

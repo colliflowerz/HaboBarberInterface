@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Salon implements Parcelable {
-    private String name,address,salonID;
+    private String name,address,salonID, suburb;
 
     public Salon() {
     }
@@ -33,10 +33,19 @@ public class Salon implements Parcelable {
         this.salonID = salonID;
     }
 
+    public String getSuburb() {
+        return suburb;
+    }
+
+    public void setSuburb(String suburb) {
+        this.suburb = suburb;
+    }
+
     protected Salon(Parcel in) {
         name = in.readString();
         address = in.readString();
         salonID = in.readString();
+        suburb = in.readString();
     }
 
     public static final Creator<Salon> CREATOR = new Creator<Salon>() {
@@ -61,5 +70,6 @@ public class Salon implements Parcelable {
         parcel.writeString(name);
         parcel.writeString(address);
         parcel.writeString(salonID);
+        parcel.writeString(suburb);
     }
 }
