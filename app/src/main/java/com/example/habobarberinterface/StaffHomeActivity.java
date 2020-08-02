@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
@@ -66,10 +68,20 @@ public class StaffHomeActivity extends AppCompatActivity implements ITimeSlotLoa
     HorizontalCalendarView calendarView;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_home);
+
+        Button pastCustomerBtn = findViewById(R.id.pastCustomersBtn);
+        pastCustomerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StaffHomeActivity.this, PastCustomersActivity.class));
+            }
+        });
 
         ButterKnife.bind(this);
         
