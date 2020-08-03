@@ -32,6 +32,13 @@ public class PastCustomersActivity extends AppCompatActivity {
         Log.d(TAG, "Salon get address" + Common.selected_salon.getSalonID());
         Log.d(TAG, "Salon get address" + Common.currentBarber.getName());
         Log.d(TAG, "Salon get address" + Common.currentBarber.getBarberId());
+        Log.d(TAG, "Salon get name" + Common.selected_salon.getName());
+        Log.d(TAG, "Salon get salon id" + Common.selected_salon.getSalonID());
+        Log.d(TAG, "Salon get suburb" + Common.selected_salon.getSuburb());
+        Log.d(TAG, "barber get name" + Common.currentBarber.getName());
+        Log.d(TAG, "barber get barber id" + Common.currentBarber.getBarberId());
+        Log.d(TAG, "barber get username" + Common.currentBarber.getUsername());
+        Log.d(TAG, "barber get suburb " + Common.currentBarber.getSuburb());
         //RecyclerOptions
 
         //ViewHolder

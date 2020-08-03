@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Barber implements Parcelable {
-    private String name,username,password,barberId;
+    private String name,username,password,barberId, suburb;
     private Long rating;
 
     public Barber() {
@@ -33,6 +33,14 @@ public class Barber implements Parcelable {
             return new Barber[size];
         }
     };
+
+    public String getSuburb() {
+        return suburb;
+    }
+
+    public void setSuburb(String suburb) {
+        this.suburb = suburb;
+    }
 
     public String getName() {
         return name;
@@ -85,6 +93,8 @@ public class Barber implements Parcelable {
         parcel.writeString(username);
         parcel.writeString(password);
         parcel.writeString(barberId);
+        parcel.writeString(suburb);
+
         if (rating == null) {
             parcel.writeByte((byte) 0);
         } else {
