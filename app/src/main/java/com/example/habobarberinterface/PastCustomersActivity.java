@@ -1,28 +1,32 @@
 package com.example.habobarberinterface;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.habobarberinterface.Adapter.PastCustomerAdapter;
 import com.example.habobarberinterface.Common.Common;
+import com.example.habobarberinterface.Common.CustomLoginDialog;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 public class PastCustomersActivity extends AppCompatActivity {
 
     private static final String TAG = "";
-    private RecyclerView customerList;
-    private FirebaseFirestore firebaseFirestore;
+    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    private DocumentReference customerRef = firebaseFirestore.collection("AllSalon").document(Common.selected_salon.getSalonID()).collection("Barber")
+            .document(Common.currentBarber.getBarberId());
 
+    private PastCustomerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_customers);
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        customerList = findViewById(R.id.customerList);
 
         //Query
         ///AllSalon/Sydney/Branch/1qm8MoF5skj0ZFA5EaY8/Barber/E3uiSmrM10y0dehKkHKD
@@ -39,10 +43,12 @@ public class PastCustomersActivity extends AppCompatActivity {
         Log.d(TAG, "barber get barber id" + Common.currentBarber.getBarberId());
         Log.d(TAG, "barber get username" + Common.currentBarber.getUsername());
         Log.d(TAG, "barber get suburb " + Common.currentBarber.getSuburb());
-        //RecyclerOptions
-
-        //ViewHolder
-
         Log.d(TAG, "The barber's name is " + Common.currentBarber.getName());
+
+        setUpRecyclerView();
+    }
+
+    private void setUpRecyclerView(){
+        Query query = customerRef;
     }
 }
