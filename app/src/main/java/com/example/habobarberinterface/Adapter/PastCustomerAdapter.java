@@ -27,8 +27,9 @@ public class PastCustomerAdapter extends FirestoreRecyclerAdapter<BookingInforma
 
     @Override
     protected void onBindViewHolder(@NonNull PastCustomerHolder holder, int position, @NonNull BookingInformation model) {
-        holder.textViewName.setText(model.getCustomerName());
-        holder.textViewNumber.setText(model.getCustomerPhone());
+        holder.textViewName.setText("Name: " + model.getCustomerName());
+        holder.textViewNumber.setText("Phone number: " + model.getCustomerPhone());
+        holder.textViewDate.setText("Time: " + model.getTime());
     }
 
     @NonNull
@@ -39,13 +40,13 @@ public class PastCustomerAdapter extends FirestoreRecyclerAdapter<BookingInforma
     }
 
     class PastCustomerHolder extends RecyclerView.ViewHolder{
-        TextView textViewName, textViewNumber;
+        TextView textViewName, textViewNumber, textViewDate;
 
         public PastCustomerHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.listName);
             textViewNumber = itemView.findViewById(R.id.listNumber);
-
+            textViewDate = itemView.findViewById(R.id.listDate);
         }
     }
 }

@@ -2,7 +2,6 @@ package com.example.habobarberinterface.Common;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.design.widget.TextInputEditText;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.habobarberinterface.Interface.IDialogClickListener;
 import com.example.habobarberinterface.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.w3c.dom.Text;
 
